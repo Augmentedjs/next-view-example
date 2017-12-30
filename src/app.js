@@ -1,9 +1,5 @@
 import Presentation from "augmentedjs-next-presentation";
-import Augmented from "augmentedjs-next";
-
-const _bind = require("lodash.bind");
-
-const DELEGATE_EVENT_SPLITTER = /^(\S+)\s*(.*)$/;
+//import Augmented from "augmentedjs-next";
 
 class MyView extends Presentation.View {
   constructor() {
@@ -12,28 +8,10 @@ class MyView extends Presentation.View {
     this.events = {
       "click #bump": "bump"
     };
-    this.delegateEvents();
   };
   bump(e) {
     alert("I was clicked!");
   };
-  delegate(eventName, selector, listener) {
-    const matchesNL = document.querySelectorAll(selector);
-    const matches = Array.from(matchesNL);
-    console.log("el", this._el);
-    console.log("selector", selector);
-    console.log("matches", matches);
-    let i = 0;
-    const l = matches.length;
-
-console.log("`${eventName}.delegateEvents${this.cid}`", `${eventName}.delegateEvents${this.cid}`)
-
-    for (i = 0; i < l; i++) {
-      matches[i].addEventListener(`${eventName}.delegateEvents${this.cid}`, listener);
-    }
-    return this;
-  };
-
 };
 
 const myView = new Presentation.View("MyView");
@@ -43,3 +21,4 @@ myView.render();
 
 const anotherView = new MyView();
 anotherView.render();
+anotherView.delegateEvents();

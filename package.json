@@ -39,7 +39,6 @@
     "foodoc": "0.0.8",
     "jsdoc": "^3.5.5",
     "jsdom": "^7.0.2",
-    "lodash.bind": "^4.2.1",
     "lodash.pick": "^4.4.0",
     "mocha": "^4.0.1",
     "mocha-jsdom": "^1.1.0",
@@ -52,7 +51,7 @@
   },
   "dependencies": {
     "augmentedjs-next": "^2.0.0-alpha.9",
-    "augmentedjs-next-presentation": "^2.0.0-alpha.2"
+    "augmentedjs-next-presentation": "^2.0.0-alpha.3"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/next-view-exmaple/issues"
