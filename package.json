@@ -50,8 +50,8 @@
     "webpack-validator": "^2.2.7"
   },
   "dependencies": {
-    "augmentedjs-next": "^2.0.0-alpha.9",
-    "augmentedjs-next-presentation": "^2.0.0-alpha.3"
+    "augmentedjs-next": "^2.0.0-alpha.18",
+    "augmentedjs-next-presentation": "^2.0.0-alpha.11"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/next-view-exmaple/issues"
