@@ -46,12 +46,12 @@
     "webpack": "^2.1.0",
     "webpack-config-utils": "^2.0.0",
     "webpack-dev-middleware": "^1.12.2",
-    "webpack-dev-server": "^2.1.0",
+    "webpack-dev-server": "^2.10.1",
     "webpack-validator": "^2.2.7"
   },
   "dependencies": {
     "augmentedjs-next": "^2.0.0-alpha.18",
-    "augmentedjs-next-presentation": "^2.0.0-alpha.11"
+    "augmentedjs-next-presentation": "^2.0.0-alpha.13"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/next-view-exmaple/issues"
