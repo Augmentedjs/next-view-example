@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "augmentedjs-next": "^2.0.0-alpha.18",
-    "augmentedjs-next-presentation": "^2.0.0-alpha.14"
+    "augmentedjs-next-presentation": "^2.0.0-alpha.15"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/next-view-exmaple/issues"

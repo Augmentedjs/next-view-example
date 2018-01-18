@@ -55,7 +55,8 @@ if (cluster.isMaster) {
     next();
   });
 
-  app.use("/", express.static(path.join(__dirname, "public")))
+  app.use("/", express.static(path.join(__dirname, "public")));
+  app.use("/vendor", express.static(path.join(__dirname, "node_modules")));
 
   /* REST API */
 
