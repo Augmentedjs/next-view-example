@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "augmentedjs-next": "^2.0.0-alpha.20",
-    "augmentedjs-next-presentation": "^2.0.0-alpha.19"
+    "augmentedjs-next-presentation": "^2.0.0-alpha.21"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/next-view-exmaple/issues"

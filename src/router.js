@@ -1,5 +1,5 @@
 import Presentation from "augmentedjs-next-presentation";
-import Table from "./table.js";
+import { DATA, SCHEMA } from "./table.js";
 import { MyView, YetAnotherView, MyDecoratorView } from "./simple.js";
 
 const myView = new Presentation.View({ "name": "MyView" });
@@ -27,7 +27,12 @@ class Router extends Presentation.Router {
           this.loadView(new MyDecoratorView());
         },
         "table": () => {
-          this.loadView(Table);
+          this.loadView(new Presentation.Component.AutomaticTable({
+            "el": "#table",
+            "name": "table",
+            "schema": SCHEMA,
+            "data": DATA
+          }));
         }
       }
     });
