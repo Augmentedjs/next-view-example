@@ -5,11 +5,12 @@ const app = new Presentation.Application("next-view-example");
 app.router = new Router();
 app.start();
 
-const article = new Presentation.Component.Article({ "template": "hello"});
+const article = new Presentation.Component.Article({ "id": "something", "style": "style" });
 article.render();
-
+/*
 const header = new Presentation.Component.Header({ "template": "hello"});
 header.render();
 
 const ham = new Presentation.Component.HamburgerMenu();
 ham.render();
+*/
