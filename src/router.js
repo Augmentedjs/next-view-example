@@ -12,6 +12,9 @@ class Router extends Presentation.Router {
     super({
       "routes": {
         "": () => {
+
+        },
+        "simple": () => {
           this.loadView(new YetAnotherView({
             "el": "#view2",
             "name": "YetAnotherView",

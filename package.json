@@ -35,14 +35,14 @@
     "mocha": "^4.0.1",
     "mocha-jsdom": "^1.1.0",
     "uglifyjs-webpack-plugin": "^1.1.8",
-    "webpack": "^3.10.0",
+    "webpack": "^3.11.0",
     "webpack-config-utils": "^2.3.0",
-    "webpack-dev-middleware": "^2.0.4",
+    "webpack-dev-middleware": "^2.0.5",
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
-    "augmentedjs-next": "^2.0.0-alpha.24",
-    "augmentedjs-next-presentation": "^2.0.0-alpha.28"
+    "augmentedjs-next": "^2.0.0-alpha.25",
+    "augmentedjs-next-presentation": "^2.0.0-alpha.33"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/next-view-exmaple/issues"
