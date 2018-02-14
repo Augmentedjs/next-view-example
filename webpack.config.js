@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'
@@ -22,13 +22,16 @@ module.exports = {
   stats: {
     colors: true
   },
-  devtool: 'source-map',
-  plugins: [
-    new UglifyJsPlugin({
-    uglifyOptions: {
-      ie8: false,
-      ecma: 8
-    }
-  })
-  ]
+  devtool: 'source-map'
+
 };
+/*
+plugins: [
+  new UglifyJsPlugin({
+  uglifyOptions: {
+    ie8: false,
+    ecma: 8
+  }
+})
+]
+*/

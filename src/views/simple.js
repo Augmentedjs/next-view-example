@@ -43,7 +43,8 @@ export class MyDecoratorView extends Presentation.DecoratorView {
     if (!this.template) {
       this.template = `<h1>This is a decorator view</h1><h2>My view name is ${this.name}.</h2><input type="text" data-${this.name}="in" data-function="setOut"/><p data-${this.name}="out"></p><button id="beep" data-${this.name}="beep" data-click="beep">Beep!</button><button id="boop" data-${this.name}="boop" data-click="boop">Boop!</button>`;
     }
-
+    console.log("temp", this.template);
+    console.log("it", this.injectTemplate);
     this.injectTemplate(this.template);
     this.syncBoundElement("in");
     this.syncModelChange("out");

@@ -1,7 +1,8 @@
 import Presentation from "augmentedjs-next-presentation";
-import { DATA, SCHEMA } from "./table.js";
-import { MyView, YetAnotherView, MyDecoratorView } from "./simple.js";
+import { DATA, SCHEMA } from "./views/table.js";
+import { MyView, YetAnotherView, MyDecoratorView } from "./views/simple.js";
 
+console.log("MyView", MyView);
 const myView = new Presentation.View({ "name": "MyView" });
 myView.el = "#view1";
 myView.template = `<h1>This is a simple view.</h1><h2>My view name is ${myView.name}.</h2><p>This is a simple view known as <em>Presentation.View</em></p><p>My permissions are${JSON.stringify(myView.permissions)}</p>`;
@@ -30,12 +31,13 @@ class Router extends Presentation.Router {
           this.loadView(new MyDecoratorView());
         },
         "table": () => {
-          this.loadView(new Presentation.Component.AutomaticTable({
+          const table = new Presentation.Component.AutomaticTable({
             "el": "#table",
             "name": "table",
             "schema": SCHEMA,
             "data": DATA
-          }));
+          });
+          this.loadView(table);
         }
       }
     });
