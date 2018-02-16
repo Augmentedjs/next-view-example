@@ -41,8 +41,9 @@
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
-    "augmentedjs-next": "^2.0.0-alpha.25",
-    "augmentedjs-next-presentation": "^2.0.0-alpha.34"
+    "augmentedjs-next": "^2.0.0-alpha.26",
+    "augmentedjs-next-presentation": "^2.0.0-alpha.37",
+    "compression": "^1.7.1"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/next-view-exmaple/issues"

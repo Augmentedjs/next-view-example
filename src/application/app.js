@@ -1,7 +1,8 @@
 import Presentation from "augmentedjs-next-presentation";
 import Router from "../router.js";
+import MainController from "../controllers/main.js";
 
-export const createApp = (app) => {
+const createApp = (app) => {
   return new Promise( (resolve, reject) => {
     app = new Presentation.Application("next-view-example");
     if (app) {
@@ -10,9 +11,8 @@ export const createApp = (app) => {
       reject(new Error("Error creating app!"));
     }
   });
-};
-
-export const createRouter = (app) => {
+},
+createRouter = (app) => {
   return new Promise( (resolve, reject) => {
     app.router = new Router();
     if (app.router) {
@@ -21,9 +21,8 @@ export const createRouter = (app) => {
       reject(new Error("Error creating router!"));
     }
   });
-};
-
-export const startApp = (app) => {
+},
+startApp = (app) => {
   return new Promise( (resolve, reject) => {
     app.start();
     if (app) {
@@ -32,4 +31,37 @@ export const startApp = (app) => {
       reject(new Error("Error starting app!"));
     }
   });
+},
+initializeApp = () => {
+  let app = null;
+  createApp(app)
+  .then( (app) => {
+    return new Promise( (resolve, reject) => {
+      app.mainController = new MainController();
+      app.mainController.initialize();
+      if (app) {
+        resolve(app);
+      } else {
+        reject(new Error("Error creating main controller!"));
+      }
+    });
+  })
+  .then( (app) => {
+    return new Promise( (resolve, reject) => {
+      app.mainController.render();
+      if (app) {
+        resolve(app);
+      } else {
+        reject(new Error("Error rendering main controller!"));
+      }
+    });
+  })
+  .then(createRouter)
+  .then(startApp)
+  .catch( (e) => {
+    console.error(e);
+    throw e;
+  });
 };
+
+export default initializeApp;

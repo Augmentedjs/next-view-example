@@ -5,9 +5,13 @@ export const createMainArticle = (controller) => {
     controller.article = new Presentation.Component.Article({
       "id": "views",
       "style": "article",
-      "header": `<h1>Links for views</h1><ul><li><a href="#">Index</a></li><li><a href="#simple">Simple</a></li><li><a href="#decorator">Decorator</a></li><li><a href="#table">Table</a></li></ul>`,
-      "body": "<p>Augmented Next View Examples</p>",
-      "footer": `<p>Built from Augmented <i>Next</i> Presentation - Version ${Presentation.VERSION}</p>`
+      "header": "<p></p>",
+      "headerStyle": "header",
+      "headerEl": "header",
+      "body": '<h1>Links for views</h1><ul><li><a href="#">Index</a></li><li><a href="#simple">Simple</a></li><li><a href="#decorator">Decorator</a></li><li><a href="#table">Table</a></li></ul>',
+      "footer": `<p>Built from Augmented <i>Next</i> Presentation - Version ${Presentation.VERSION}</p>`,
+      "footerStyle": "footer",
+      "footerEl": "footer",
     });
 
     if (controller.article) {

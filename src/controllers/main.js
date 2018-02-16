@@ -1,5 +1,6 @@
 import Presentation from "augmentedjs-next-presentation";
 import { createMainArticle, addSectionsToMainArticle, renderMainArticle, cleanupMainArticle } from "../components/article.js";
+import { createHeader, renderHeader, cleanupHeader } from "../components/header.js";
 
 class MainController extends Presentation.ViewController {
 	constructor(options) {
@@ -10,6 +11,7 @@ class MainController extends Presentation.ViewController {
     const controller = this;
     createMainArticle(controller)
     .then(addSectionsToMainArticle)
+		.then(createHeader)
     .catch( (e) => {
       console.error(e);
       console.error(e.stack);
@@ -20,6 +22,7 @@ class MainController extends Presentation.ViewController {
 	render() {
     const controller = this;
     renderMainArticle(controller)
+		.then(renderHeader)
     .catch( (e) => {
       console.error(e);
       console.error(e.stack);
@@ -29,7 +32,8 @@ class MainController extends Presentation.ViewController {
 	};
 	remove() {
     const controller = this;
-    cleanupMainArticle(controller)
+		cleanupHeader(controller)
+    .then(cleanupMainArticle)
     .then( (controller) => {
       return new Promise( (resolve, reject) => {
         controller.article = null;

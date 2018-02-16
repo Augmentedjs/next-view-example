@@ -1,6 +1,7 @@
 const cluster = require("cluster");
 const http = require("http");
 const CONSTANTS = require("./constants.js");
+const compression = require("compression");
 
 // Code to run if we're in the master process
 if (cluster.isMaster) {
@@ -27,7 +28,18 @@ if (cluster.isMaster) {
   const CONSTANTS = require("./constants.js");
   const allowedOrigins = [CONSTANTS.WEB_SERVICE_URI, CONSTANTS.EE_SERVICE_URI];
 
+  const shouldCompress = (req, res) => {
+    if (req.headers['x-no-compression']) {
+      // don't compress responses with this request header
+      return false;
+    }
+    // fallback to standard filter function
+    return compression.filter(req, res);
+  };
+
   const app = express();
+  app.use(compression({filter: shouldCompress}));
+
 
   app.use(bodyParser.json()); // support json encoded bodies
   app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
