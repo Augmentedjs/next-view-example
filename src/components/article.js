@@ -5,10 +5,17 @@ export const createMainArticle = (controller) => {
     controller.article = new Presentation.Component.Article({
       "id": "views",
       "style": "article",
-      "header": "<p></p>",
+      "header": "<i></i>",
       "headerStyle": "header",
       "headerEl": "header",
-      "body": '<h1>Links for views</h1><ul><li><a href="#">Index</a></li><li><a href="#simple">Simple</a></li><li><a href="#decorator">Decorator</a></li><li><a href="#table">Table</a></li></ul>',
+      "body": `
+        <h1>Links for views</h1>
+        <ul>
+          <li><a href="#">Index</a></li>
+          <li><a href="#simple">Simple</a></li>
+          <li><a href="#decorator">Decorator</a></li>
+          <li><a href="#table">Table</a></li>
+        </ul>`,
       "footer": `<p>Built from Augmented <i>Next</i> Presentation - Version ${Presentation.VERSION}</p>`,
       "footerStyle": "footer",
       "footerEl": "footer",

@@ -5,7 +5,10 @@ export const createHeader = (controller) => {
     controller.header = new Presentation.Component.Header({
       "el": "#header",
       "style": "header",
-      "template": "<h1>Augmented <i>Next</i> Presentation View Examples</h1>"
+      "template": `
+        <div id='hamburger'></div>
+        <h1>Augmented <i>Next</i> Presentation View Examples</h1>
+      `
     });
 
     if (controller.header) {

@@ -34,7 +34,7 @@
     "jsdom": "^7.0.2",
     "mocha": "^4.0.1",
     "mocha-jsdom": "^1.1.0",
-    "uglifyjs-webpack-plugin": "^1.1.8",
+    "uglifyjs-webpack-plugin": "^1.2.0",
     "webpack": "^3.11.0",
     "webpack-config-utils": "^2.3.0",
     "webpack-dev-middleware": "^2.0.5",
@@ -42,8 +42,8 @@
   },
   "dependencies": {
     "augmentedjs-next": "^2.0.0-alpha.26",
-    "augmentedjs-next-presentation": "^2.0.0-alpha.37",
-    "compression": "^1.7.1"
+    "augmentedjs-next-presentation": "^2.0.0-alpha.38",
+    "compression": "^1.7.2"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/next-view-exmaple/issues"

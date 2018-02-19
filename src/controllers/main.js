@@ -1,6 +1,7 @@
 import Presentation from "augmentedjs-next-presentation";
 import { createMainArticle, addSectionsToMainArticle, renderMainArticle, cleanupMainArticle } from "../components/article.js";
 import { createHeader, renderHeader, cleanupHeader } from "../components/header.js";
+import { createHamburger, renderHamburger, cleanupHamburger } from "../components/hamburger.js";
 
 class MainController extends Presentation.ViewController {
 	constructor(options) {
@@ -12,6 +13,7 @@ class MainController extends Presentation.ViewController {
     createMainArticle(controller)
     .then(addSectionsToMainArticle)
 		.then(createHeader)
+		.then(createHamburger)
     .catch( (e) => {
       console.error(e);
       console.error(e.stack);
@@ -23,6 +25,7 @@ class MainController extends Presentation.ViewController {
     const controller = this;
     renderMainArticle(controller)
 		.then(renderHeader)
+		.then(renderHamburger)
     .catch( (e) => {
       console.error(e);
       console.error(e.stack);
@@ -33,6 +36,7 @@ class MainController extends Presentation.ViewController {
 	remove() {
     const controller = this;
 		cleanupHeader(controller)
+		.then(cleanupHamburger)
     .then(cleanupMainArticle)
     .then( (controller) => {
       return new Promise( (resolve, reject) => {
@@ -48,7 +52,6 @@ class MainController extends Presentation.ViewController {
       console.error(e);
       console.error(e.stack);
     });
-
 		return true;
 	};
 };
