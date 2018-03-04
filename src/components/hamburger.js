@@ -1,4 +1,5 @@
 import Presentation from "augmentedjs-next-presentation";
+import Application from "../application/app.js";
 
 export const createHamburger = (controller) => {
   return new Promise( (resolve, reject) => {
@@ -12,7 +13,7 @@ export const createHamburger = (controller) => {
       "table",
       () => {
         console.log("I got here");
-        window.location = "#table";
+        Application.router.navigate("table", true);
       },
       "grid_on",
       "Automatic Table",

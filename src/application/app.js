@@ -2,9 +2,9 @@ import Presentation from "augmentedjs-next-presentation";
 import Router from "../router.js";
 import MainController from "../controllers/main.js";
 
-const createApp = (app) => {
+const Application = new Presentation.Application("next-view-example"),
+createApp = (app) => {
   return new Promise( (resolve, reject) => {
-    app = new Presentation.Application("next-view-example");
     if (app) {
       resolve(app);
     } else {
@@ -32,8 +32,7 @@ startApp = (app) => {
     }
   });
 },
-initializeApp = () => {
-  let app = null;
+initializeApp = (app) => {
   createApp(app)
   .then( (app) => {
     return new Promise( (resolve, reject) => {
@@ -64,4 +63,6 @@ initializeApp = () => {
   });
 };
 
-export default initializeApp;
+initializeApp(Application);
+
+export default Application;
