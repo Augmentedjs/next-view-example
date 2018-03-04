@@ -8,6 +8,17 @@ export const createHamburger = (controller) => {
       "title": "Augmented.js Next"
     });
 
+    controller.hamburger.addItem(
+      "table",
+      () => {
+        console.log("I got here");
+        window.location = "#table";
+      },
+      "grid_on",
+      "Automatic Table",
+      false
+    );
+
     if (controller.hamburger) {
       resolve(controller);
     } else {
