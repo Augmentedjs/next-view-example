@@ -18,7 +18,7 @@ export const createMainArticle = (controller) => {
         </ul>`,
       "footer": `<p>Built from Augmented <i>Next</i> Presentation - Version ${Presentation.VERSION}</p>`,
       "footerStyle": "footer",
-      "footerEl": "footer",
+      "footerEl": "footer"
     });
 
     if (controller.article) {

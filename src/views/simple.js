@@ -2,7 +2,7 @@ import Presentation from "augmentedjs-next-presentation";
 
 export class MyView extends Presentation.View {
   constructor() {
-    super({ "name": "ChildView" });
+    super({ "name": "ChildView", "style": "view" });
     if (!this.template) {
       this.template = `<h1>This is a simple view also.</h1><h2>My view name is ${this.name}.</h2><p>This is a simple view extends <em>Presentation.View</em></p><button id="bump">Click Me</button>`;
     }
@@ -18,6 +18,10 @@ export class MyView extends Presentation.View {
 export class YetAnotherView extends Presentation.View {
   constructor(options) {
     console.log("options", options);
+    if (!options) {
+      options = {};
+    }
+    options.style = "view";
     super(options);
     console.log("im here", this.name);
     if (!this.template) {
@@ -39,7 +43,7 @@ export class YetAnotherView extends Presentation.View {
 
 export class MyDecoratorView extends Presentation.DecoratorView {
   constructor() {
-    super({ "name": "beeper", "el": "#decorator" });
+    super({ "name": "beeper", "el": "#decorator", "style": "view" });
     if (!this.template) {
       this.template = `<h1>This is a decorator view</h1><h2>My view name is ${this.name}.</h2><input type="text" data-${this.name}="in" data-function="setOut"/><p data-${this.name}="out"></p><button id="beep" data-${this.name}="beep" data-click="beep">Beep!</button><button id="boop" data-${this.name}="boop" data-click="boop">Boop!</button>`;
     }

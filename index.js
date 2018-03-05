@@ -29,7 +29,7 @@ if (cluster.isMaster) {
   const allowedOrigins = [CONSTANTS.WEB_SERVICE_URI, CONSTANTS.EE_SERVICE_URI];
 
   const shouldCompress = (req, res) => {
-    if (req.headers['x-no-compression']) {
+    if (req.headers["x-no-compression"]) {
       // don't compress responses with this request header
       return false;
     }

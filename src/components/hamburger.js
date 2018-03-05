@@ -1,20 +1,49 @@
 import Presentation from "augmentedjs-next-presentation";
 import Application from "../application/app.js";
 
-export const createHamburger = (controller) => {
-  return new Promise( (resolve, reject) => {
-    controller.hamburger = new Presentation.Component.HamburgerMenu({
+class HamburgerMenu extends Presentation.Component.HamburgerMenu {
+  constructor() {
+    super({
       "el": "#hamburger",
       "name": "next-view-example",
       "title": "Augmented.js Next"
     });
+  };
+  table() {
+    console.log("I got here");
+    Application.router.navigate("table", true);
+    this.toggle();
+  };
+  simple() {
+    Application.router.navigate("simple", true);
+    this.toggle();
+  };
+  decorator() {
+    Application.router.navigate("decorator", true);
+    this.toggle();
+  };
+};
 
+export const createHamburger = (controller) => {
+  return new Promise( (resolve, reject) => {
+    controller.hamburger = new HamburgerMenu();
     controller.hamburger.addItem(
+      "menuSimple",
+      "simple",
+      "web",
+      "Simple Views",
+      false
+    );
+    controller.hamburger.addItem(
+      "menuDecorator",
+      "decorator",
+      "web",
+      "Decorator View",
+      false
+    );
+    controller.hamburger.addItem(
+      "menuAutotable",
       "table",
-      () => {
-        console.log("I got here");
-        Application.router.navigate("table", true);
-      },
       "grid_on",
       "Automatic Table",
       false

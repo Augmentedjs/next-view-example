@@ -197,7 +197,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 console.log("MyView", _simple.MyView);
 var myView = new _augmentedjsNextPresentation2.default.View({ "name": "MyView" });
 myView.el = "#view1";
-myView.template = "<h1>This is a simple view.</h1><h2>My view name is " + myView.name + ".</h2><p>This is a simple view known as <em>Presentation.View</em></p><p>My permissions are" + JSON.stringify(myView.permissions) + "</p>";
+myView.template = "\n  <h1>This is a simple view.</h1>\n  <h2>My view name is " + myView.name + ".</h2>\n  <p>This is a simple view known as <em>Presentation.View</em></p>\n  <p>My permissions are" + JSON.stringify(myView.permissions) + "</p>\n";
 
 var Router = function (_Presentation$Router) {
   _inherits(Router, _Presentation$Router);
@@ -214,6 +214,7 @@ var Router = function (_Presentation$Router) {
           _this.loadView(new _simple.YetAnotherView({
             "el": "#view2",
             "name": "YetAnotherView",
+            "style": "view",
             "template": "<h1>This is a simple view.</h1><h2>My view name is YetAnotherView.</h2><p>This vew is declared by passing options.</p><button id=\"bump2\">Click Me</button>",
             "events": {
               "click #bump2": "bump"
@@ -311,7 +312,7 @@ var MyView = exports.MyView = function (_Presentation$View) {
   function MyView() {
     _classCallCheck(this, MyView);
 
-    var _this = _possibleConstructorReturn(this, (MyView.__proto__ || Object.getPrototypeOf(MyView)).call(this, { "name": "ChildView" }));
+    var _this = _possibleConstructorReturn(this, (MyView.__proto__ || Object.getPrototypeOf(MyView)).call(this, { "name": "ChildView", "style": "view" }));
 
     if (!_this.template) {
       _this.template = "<h1>This is a simple view also.</h1><h2>My view name is " + _this.name + ".</h2><p>This is a simple view extends <em>Presentation.View</em></p><button id=\"bump\">Click Me</button>";
@@ -341,6 +342,10 @@ var YetAnotherView = exports.YetAnotherView = function (_Presentation$View2) {
     _classCallCheck(this, YetAnotherView);
 
     console.log("options", options);
+    if (!options) {
+      options = {};
+    }
+    options.style = "view";
 
     var _this2 = _possibleConstructorReturn(this, (YetAnotherView.__proto__ || Object.getPrototypeOf(YetAnotherView)).call(this, options));
 
@@ -377,7 +382,7 @@ var MyDecoratorView = exports.MyDecoratorView = function (_Presentation$Decorat)
   function MyDecoratorView() {
     _classCallCheck(this, MyDecoratorView);
 
-    var _this3 = _possibleConstructorReturn(this, (MyDecoratorView.__proto__ || Object.getPrototypeOf(MyDecoratorView)).call(this, { "name": "beeper", "el": "#decorator" }));
+    var _this3 = _possibleConstructorReturn(this, (MyDecoratorView.__proto__ || Object.getPrototypeOf(MyDecoratorView)).call(this, { "name": "beeper", "el": "#decorator", "style": "view" }));
 
     if (!_this3.template) {
       _this3.template = "<h1>This is a decorator view</h1><h2>My view name is " + _this3.name + ".</h2><input type=\"text\" data-" + _this3.name + "=\"in\" data-function=\"setOut\"/><p data-" + _this3.name + "=\"out\"></p><button id=\"beep\" data-" + _this3.name + "=\"beep\" data-click=\"beep\">Beep!</button><button id=\"boop\" data-" + _this3.name + "=\"boop\" data-click=\"boop\">Boop!</button>";
@@ -650,6 +655,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.cleanupHamburger = exports.renderHamburger = exports.createHamburger = undefined;
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _augmentedjsNextPresentation = __webpack_require__(0);
 
 var _augmentedjsNextPresentation2 = _interopRequireDefault(_augmentedjsNextPresentation);
@@ -660,18 +667,57 @@ var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var createHamburger = exports.createHamburger = function createHamburger(controller) {
-  return new Promise(function (resolve, reject) {
-    controller.hamburger = new _augmentedjsNextPresentation2.default.Component.HamburgerMenu({
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var HamburgerMenu = function (_Presentation$Compone) {
+  _inherits(HamburgerMenu, _Presentation$Compone);
+
+  function HamburgerMenu() {
+    _classCallCheck(this, HamburgerMenu);
+
+    return _possibleConstructorReturn(this, (HamburgerMenu.__proto__ || Object.getPrototypeOf(HamburgerMenu)).call(this, {
       "el": "#hamburger",
       "name": "next-view-example",
       "title": "Augmented.js Next"
-    });
+    }));
+  }
 
-    controller.hamburger.addItem("table", function () {
+  _createClass(HamburgerMenu, [{
+    key: "table",
+    value: function table() {
       console.log("I got here");
       _app2.default.router.navigate("table", true);
-    }, "grid_on", "Automatic Table", false);
+      this.toggle();
+    }
+  }, {
+    key: "simple",
+    value: function simple() {
+      _app2.default.router.navigate("simple", true);
+      this.toggle();
+    }
+  }, {
+    key: "decorator",
+    value: function decorator() {
+      _app2.default.router.navigate("decorator", true);
+      this.toggle();
+    }
+  }]);
+
+  return HamburgerMenu;
+}(_augmentedjsNextPresentation2.default.Component.HamburgerMenu);
+
+;
+
+var createHamburger = exports.createHamburger = function createHamburger(controller) {
+  return new Promise(function (resolve, reject) {
+    controller.hamburger = new HamburgerMenu();
+    controller.hamburger.addItem("menuSimple", "simple", "web", "Simple Views", false);
+    controller.hamburger.addItem("menuDecorator", "decorator", "web", "Decorator View", false);
+    controller.hamburger.addItem("menuAutotable", "table", "grid_on", "Automatic Table", false);
 
     if (controller.hamburger) {
       resolve(controller);
