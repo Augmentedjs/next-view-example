@@ -167,6 +167,29 @@ var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var isMobile = {
+    Android: function Android() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function BlackBerry() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function iOS() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function Opera() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function Windows() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function any() {
+        return isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows();
+    }
+};
+
+console.log("Is Mobile " + isMobile());
+
 /***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -194,11 +217,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-console.log("MyView", _simple.MyView);
-var myView = new _augmentedjsNextPresentation2.default.View({ "name": "MyView" });
-myView.el = "#view1";
-myView.template = "\n  <h1>This is a simple view.</h1>\n  <h2>My view name is " + myView.name + ".</h2>\n  <p>This is a simple view known as <em>Presentation.View</em></p>\n  <p>My permissions are" + JSON.stringify(myView.permissions) + "</p>\n";
-
 var Router = function (_Presentation$Router) {
   _inherits(Router, _Presentation$Router);
 
@@ -215,13 +233,11 @@ var Router = function (_Presentation$Router) {
             "el": "#view2",
             "name": "YetAnotherView",
             "style": "view",
-            "template": "<h1>This is a simple view.</h1><h2>My view name is YetAnotherView.</h2><p>This vew is declared by passing options.</p><button id=\"bump2\">Click Me</button>",
+            "template": "\n              <h1>This is a simple view.</h1>\n              <h2>My view name is YetAnotherView.</h2>\n              <p>This vew is declared by passing options.</p>\n              <button id=\"bump2\">Click Me</button>\n            ",
             "events": {
               "click #bump2": "bump"
             }
           }));
-          _this.loadView(new _simple.MyView());
-          myView.render();
         },
         "decorator": function decorator() {
           _this.loadView(new _simple.MyDecoratorView());
@@ -231,9 +247,20 @@ var Router = function (_Presentation$Router) {
             "el": "#table",
             "name": "table",
             "schema": _table.SCHEMA,
-            "data": _table.DATA
+            "data": _table.DATA,
+            "style": "view"
           });
           _this.loadView(table);
+        },
+        "form": function form() {
+          var form = new _augmentedjsNextPresentation2.default.Component.AutomaticForm({
+            "el": "#form",
+            "name": "form",
+            "schema": _table.SCHEMA,
+            "data": _table.DATA,
+            "style": "view"
+          });
+          _this.loadView(form);
         }
       }
     }));
@@ -536,7 +563,7 @@ var createMainArticle = exports.createMainArticle = function createMainArticle(c
       "header": "<i></i>",
       "headerStyle": "header",
       "headerEl": "header",
-      "body": "\n        <h1>Links for views</h1>\n        <ul>\n          <li><a href=\"#\">Index</a></li>\n          <li><a href=\"#simple\">Simple</a></li>\n          <li><a href=\"#decorator\">Decorator</a></li>\n          <li><a href=\"#table\">Table</a></li>\n        </ul>",
+      "body": "\n        <h1>Links for views</h1>\n        <ul>\n          <li><a href=\"#\">Index</a></li>\n          <li><a href=\"#simple\">Simple</a></li>\n          <li><a href=\"#decorator\">Decorator</a></li>\n          <li><a href=\"#table\">Table</a></li>\n          <li><a href=\"#form\">Form</a></li>\n        </ul>\n        ",
       "footer": "<p>Built from Augmented <i>Next</i> Presentation - Version " + _augmentedjsNextPresentation2.default.VERSION + "</p>",
       "footerStyle": "footer",
       "footerEl": "footer"
@@ -556,7 +583,7 @@ var addSectionsToMainArticle = exports.addSectionsToMainArticle = function addSe
     controller.article.addSection({ "id": "view2" });
     controller.article.addSection({ "id": "decorator" });
     controller.article.addSection({ "id": "table" });
-
+    controller.article.addSection({ "id": "form" });
     if (controller.article) {
       resolve(controller);
     } else {
@@ -705,6 +732,12 @@ var HamburgerMenu = function (_Presentation$Compone) {
       _app2.default.router.navigate("decorator", true);
       this.toggle();
     }
+  }, {
+    key: "form",
+    value: function form() {
+      _app2.default.router.navigate("form", true);
+      this.toggle();
+    }
   }]);
 
   return HamburgerMenu;
@@ -718,6 +751,7 @@ var createHamburger = exports.createHamburger = function createHamburger(control
     controller.hamburger.addItem("menuSimple", "simple", "web", "Simple Views", false);
     controller.hamburger.addItem("menuDecorator", "decorator", "web", "Decorator View", false);
     controller.hamburger.addItem("menuAutotable", "table", "grid_on", "Automatic Table", false);
+    controller.hamburger.addItem("menuAutoform", "form", "format_align_left", "Automatic Form", false);
 
     if (controller.hamburger) {
       resolve(controller);

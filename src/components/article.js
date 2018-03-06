@@ -15,7 +15,9 @@ export const createMainArticle = (controller) => {
           <li><a href="#simple">Simple</a></li>
           <li><a href="#decorator">Decorator</a></li>
           <li><a href="#table">Table</a></li>
-        </ul>`,
+          <li><a href="#form">Form</a></li>
+        </ul>
+        `,
       "footer": `<p>Built from Augmented <i>Next</i> Presentation - Version ${Presentation.VERSION}</p>`,
       "footerStyle": "footer",
       "footerEl": "footer"
@@ -35,7 +37,7 @@ export const addSectionsToMainArticle = (controller) => {
     controller.article.addSection({"id": "view2"});
     controller.article.addSection({"id": "decorator"});
     controller.article.addSection({"id": "table"});
-
+    controller.article.addSection({"id": "form"});
     if (controller.article) {
       resolve(controller);
     } else {

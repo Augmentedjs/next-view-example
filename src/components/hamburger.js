@@ -22,6 +22,10 @@ class HamburgerMenu extends Presentation.Component.HamburgerMenu {
     Application.router.navigate("decorator", true);
     this.toggle();
   };
+  form() {
+    Application.router.navigate("form", true);
+    this.toggle();
+  };
 };
 
 export const createHamburger = (controller) => {
@@ -46,6 +50,13 @@ export const createHamburger = (controller) => {
       "table",
       "grid_on",
       "Automatic Table",
+      false
+    );
+    controller.hamburger.addItem(
+      "menuAutoform",
+      "form",
+      "format_align_left",
+      "Automatic Form",
       false
     );
 
