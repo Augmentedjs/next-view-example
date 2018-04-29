@@ -21,28 +21,25 @@
   "author": "Bob Warren <jedi.master@augmentedjs.com> (http://www.augmentedjs.com)",
   "license": "Apache-2.0",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.3",
-    "babel-plugin-istanbul": "^4.1.5",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.26.0",
+    "babel-core": "^6.26.2",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
     "chai": "^4.1.2",
-    "express": "^4.16.2",
-    "foodoc": "0.0.8",
+    "compression": "^1.7.2",
+    "css-loader": "^0.28.11",
+    "express": "^4.16.3",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
     "jsdoc": "^3.5.5",
-    "jsdom": "^7.0.2",
-    "mocha": "^4.0.1",
-    "mocha-jsdom": "^1.1.0",
-    "uglifyjs-webpack-plugin": "^1.2.2",
-    "webpack": "^3.11.0",
-    "webpack-config-utils": "^2.3.0",
-    "webpack-dev-middleware": "^2.0.6",
-    "webpack-dev-server": "^2.11.2",
-    "compression": "^1.7.2"
+    "jsdom": "^11.9.0",
+    "mocha": "^5.1.1",
+    "node-fetch": "^2.1.2",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
   },
   "dependencies": {
-    "augmentedjs-next-presentation": "^2.0.0"
+    "augmentedjs-next-presentation": "^2.0.14"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/next-view-exmaple/issues"

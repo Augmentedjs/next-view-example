@@ -1,38 +1,40 @@
-const path = require('path');
-const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const path = require("path");
+const webpack = require("webpack");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: "./src/index.js",
+  context: __dirname,
+  target: "web",
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
         exclude: /node_modules/,
-        query: {
-          presets: ['es2015']
+        use: {
+          loader: "babel-loader"
         }
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader'
+        ]
       }
     ]
   },
   stats: {
     colors: true
   },
-  devtool: 'source-map'
-
+  devtool: "source-map",
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
+      filename: "index.html"
+    })
+  ]
 };
-/*
-plugins: [
-  new UglifyJsPlugin({
-  uglifyOptions: {
-    ie8: false,
-    ecma: 8
-  }
-})
-]
-*/
