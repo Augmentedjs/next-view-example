@@ -1,8 +1,8 @@
-import Presentation from "augmentedjs-next-presentation";
+import Augmented from "augmentedjs-next-presentation";
 
 export const createHeader = (controller) => {
   return new Promise( (resolve, reject) => {
-    controller.header = new Presentation.Component.Header({
+    controller.header = new Augmented.Presentation.Component.Header({
       "el": "#header",
       "style": "header",
       "template": `

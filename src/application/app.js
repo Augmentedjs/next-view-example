@@ -1,8 +1,8 @@
-import Presentation from "augmentedjs-next-presentation";
+import Augmented from "augmentedjs-next-presentation";
 import Router from "../router.js";
 import MainController from "../controllers/main.js";
 
-const Application = new Presentation.Application("next-view-example"),
+const Application = new Augmented.Presentation.Application("next-view-example"),
 createApp = (app) => {
   return new Promise( (resolve, reject) => {
     if (app) {

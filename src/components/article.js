@@ -1,8 +1,8 @@
-import Presentation from "augmentedjs-next-presentation";
+import Augmented from "augmentedjs-next-presentation";
 
 export const createMainArticle = (controller) => {
   return new Promise( (resolve, reject) => {
-    controller.article = new Presentation.Component.Article({
+    controller.article = new Augmented.Presentation.Component.Article({
       "id": "views",
       "style": "article",
       "header": "<i></i>",

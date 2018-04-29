@@ -1,7 +1,7 @@
 {
   "name": "next-view-example",
-  "version": "2.0.0-alpha.0",
-  "description": "The Augmented.js Next - Presentation Module.",
+  "version": "2.0.0",
+  "description": "The Augmented.js Next - View Example",
   "main": "public/bundle.js",
   "scripts": {
     "build": "webpack --env.prod",
@@ -38,11 +38,11 @@
     "webpack": "^3.11.0",
     "webpack-config-utils": "^2.3.0",
     "webpack-dev-middleware": "^2.0.6",
-    "webpack-dev-server": "^2.11.2"
+    "webpack-dev-server": "^2.11.2",
+    "compression": "^1.7.2"
   },
   "dependencies": {
-    "augmentedjs-next-presentation": "^2.0.0-alpha.41",
-    "compression": "^1.7.2"
+    "augmentedjs-next-presentation": "^2.0.0"
   },
   "bugs": {
     "url": "https://github.com/Augmentedjs/next-view-exmaple/issues"

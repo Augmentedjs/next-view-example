@@ -1,8 +1,8 @@
-import Presentation from "augmentedjs-next-presentation";
+import Augmented from "augmentedjs-next-presentation";
 import { DATA, SCHEMA } from "./views/table.js";
 import { MyView, YetAnotherView, MyDecoratorView } from "./views/simple.js";
 
-class Router extends Presentation.Router {
+class Router extends Augmented.Presentation.Router {
   constructor() {
     super({
       "routes": {

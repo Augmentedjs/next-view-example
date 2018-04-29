@@ -1,9 +1,9 @@
-import Presentation from "augmentedjs-next-presentation";
+import Augmented from "augmentedjs-next-presentation";
 import { createMainArticle, addSectionsToMainArticle, renderMainArticle, cleanupMainArticle } from "../components/article.js";
 import { createHeader, renderHeader, cleanupHeader } from "../components/header.js";
 import { createHamburger, renderHamburger, cleanupHamburger } from "../components/hamburger.js";
 
-class MainController extends Presentation.ViewController {
+class MainController extends Augmented.Presentation.ViewController {
 	constructor(options) {
 		super(options);
 	};

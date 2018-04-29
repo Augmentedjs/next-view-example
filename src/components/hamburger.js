@@ -1,7 +1,7 @@
-import Presentation from "augmentedjs-next-presentation";
+import Augmented from "augmentedjs-next-presentation";
 import Application from "../application/app.js";
 
-class HamburgerMenu extends Presentation.Component.HamburgerMenu {
+class HamburgerMenu extends Augmented.Presentation.Component.HamburgerMenu {
   constructor() {
     super({
       "el": "#hamburger",

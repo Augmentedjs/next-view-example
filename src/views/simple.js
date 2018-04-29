@@ -1,6 +1,6 @@
-import Presentation from "augmentedjs-next-presentation";
+import Augmented from "augmentedjs-next-presentation";
 
-export class MyView extends Presentation.View {
+export class MyView extends Augmented.Presentation.View {
   constructor() {
     super({ "name": "ChildView", "style": "view" });
     if (!this.template) {
@@ -15,7 +15,7 @@ export class MyView extends Presentation.View {
   };
 };
 
-export class YetAnotherView extends Presentation.View {
+export class YetAnotherView extends Augmented.Presentation.View {
   constructor(options) {
     console.log("options", options);
     if (!options) {
@@ -41,7 +41,7 @@ export class YetAnotherView extends Presentation.View {
   };
 };
 
-export class MyDecoratorView extends Presentation.DecoratorView {
+export class MyDecoratorView extends Augmented.Presentation.DecoratorView {
   constructor() {
     super({ "name": "beeper", "el": "#decorator", "style": "view" });
     if (!this.template) {
