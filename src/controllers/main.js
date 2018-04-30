@@ -3,6 +3,9 @@ import { createMainArticle, addSectionsToMainArticle, renderMainArticle, cleanup
 import { createHeader, renderHeader, cleanupHeader } from "../components/header.js";
 import { createHamburger, renderHamburger, cleanupHamburger } from "../components/hamburger.js";
 
+
+console.debug("Augmented", Augmented.Presentation);
+
 class MainController extends Augmented.Presentation.ViewController {
 	constructor(options) {
 		super(options);

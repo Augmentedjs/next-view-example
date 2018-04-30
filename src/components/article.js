@@ -18,7 +18,7 @@ export const createMainArticle = (controller) => {
           <li><a href="#form">Form</a></li>
         </ul>
         `,
-      "footer": `<p>Built from Augmented <i>Next</i> Presentation - Version ${Presentation.VERSION}</p>`,
+      "footer": `<p>Built from Augmented <i>Next</i> Presentation - Version ${Augmented.Presentation.VERSION}</p>`,
       "footerStyle": "footer",
       "footerEl": "footer"
     });

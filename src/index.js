@@ -1,5 +1,5 @@
 import Application from "./application/app.js";
-
+/*
 const isMobile = {
         Android: function() {
             return navigator.userAgent.match(/Android/i);
@@ -22,3 +22,4 @@ const isMobile = {
     };
 
 console.log(`Is Mobile ${isMobile()}`);
+*/

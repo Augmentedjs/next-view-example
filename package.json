@@ -4,9 +4,10 @@
   "description": "The Augmented.js Next - View Example",
   "main": "public/bundle.js",
   "scripts": {
-    "build": "webpack --env.prod",
+    "dev": "webpack --mode development --module-bind js=babel-loader --module-bind 'css=style-loader!css-loader'",
+    "build": "webpack --mode production --module-bind js=babel-loader --module-bind 'css=style-loader!css-loader'",
+    "test": "mocha --require babel-core/register --require test/helper.js -c test/*Spec.js",
     "start": "node index.js",
-    "test": "mocha --require babel-core/register",
     "docs": "jsdoc ./src -d ./jsdoc/ -R ./README.md -t ./node_modules/foodoc/template -c ./jsdoc.conf.json"
   },
   "repository": {
