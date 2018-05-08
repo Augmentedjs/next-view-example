@@ -29,7 +29,7 @@ class Router extends Augmented.Presentation.Router {
           this.loadView(new MyDecoratorView());
         },
         "table": () => {
-          const table = new Presentation.Component.AutomaticTable({
+          const table = new Augmented.Presentation.Component.AutomaticTable({
             "el": "#table",
             "name": "table",
             "schema": SCHEMA,
@@ -39,7 +39,7 @@ class Router extends Augmented.Presentation.Router {
           this.loadView(table);
         },
         "form": () => {
-          const form = new Presentation.Component.AutomaticForm({
+          const form = new Augmented.Presentation.Component.AutomaticForm({
             "el": "#form",
             "name": "form",
             "schema": SCHEMA,
