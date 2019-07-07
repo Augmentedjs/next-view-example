@@ -1,10 +1,10 @@
 {
   "presets": [
-    ["env", {
+    ["@babel/preset-env", {
       "targets": {
-        "browsers": ["last 2 versions", "safari >= 7"]
+        "browsers": ["firefox > 66", "chrome > 73"]
       },
-      "include": ["transform-es2015-arrow-functions", "es6.map"],
+      "debug": true
     }]
   ]
 }
