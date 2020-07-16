@@ -1,25 +1,23 @@
-import Application from "./application/app.js";
-/*
-const isMobile = {
-        Android: function() {
-            return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function() {
-            return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function() {
-            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function() {
-            return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function() {
-            return navigator.userAgent.match(/IEMobile/i);
-        },
-        any: function() {
-            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-        }
-    };
+/* fonts */
+import "typeface-roboto";
+import "typeface-libre-franklin";
+import "material-icons";
 
-console.log(`Is Mobile ${isMobile()}`);
-*/
+import "presentation-css";
+import "./styles/main.scss";
+
+import { ErrorHandler } from "presentation-exceptions";
+import initializeApp from "./setup/initializeApp.js";
+
+const DeusEx = async () => {
+  try {
+    return await initializeApp();
+  } catch(e) {
+    ErrorHandler(e);
+  }
+};
+
+// invoke the app
+if (AUTO_INVOKE) {
+  DeusEx();
+}

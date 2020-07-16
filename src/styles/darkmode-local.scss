@@ -1,0 +1,45 @@
+/* set these for the app's branding */
+:root {
+  --primary-color: #7E57C2;
+  --primary-color-dark: #5E35B1;
+  --primary-color-light: #B39DDB;
+  --secondary-color: #26C6DA;
+  --secondary-color-dark: #00ACC1;
+  --secondary-color-light: #80DEEA;
+
+  --background-color: #101010;
+  --app-color: #212121;
+  --panel-color: #212121;
+  --app-text: var(--light-text);
+  --border-color: rgba(255,255,255,0.2);
+  --button-color: white;
+  --button-hover-color: #d0d0d0;
+}
+
+button {
+  color: var(--dark-text);
+  background-color: var(--button-color);
+  &:hover {
+    color: var(--dark-text);
+    background-color: var(--button-hover-color);
+  }
+
+  &.primary {
+    color: var(--light-text);
+    &:hover {
+      color: var(--dark-text);
+      background-color: var(--primary-color-light);
+    }
+  }
+
+  &.secondary {
+    color: var(--dark-text);
+  }
+}
+
+/* more subtle menu highlight */
+.menu {
+  div:hover {
+    background-color: var(--secondary-color-dark);
+  }
+}

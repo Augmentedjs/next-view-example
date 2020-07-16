@@ -1,42 +1,33 @@
-import Augmented from "augmentedjs-next-presentation";
+import { Header as BaseHeader } from "presentation-components";
+import { AboutDialogView } from "presentation-dialogs";
+import { ABOUT_CONFIG } from "../constants.js";
 
-export const createHeader = (controller) => {
-  return new Promise( (resolve, reject) => {
-    controller.header = new Augmented.Presentation.Component.Header({
-      "el": "#header",
-      "style": "header",
-      "template": `
-        <div id='hamburger'></div>
-        <h1>Augmented <i>Next</i> Presentation View Examples</h1>
-      `
-    });
+const NAME = "header",
+      MOUNT_POINT = `#${NAME}`;
 
-    if (controller.header) {
-      resolve(controller);
-    } else {
-      reject(new Error("Error creating header!"));
+class Header extends BaseHeader {
+  constructor(options = {}) {
+    options.el = MOUNT_POINT;
+    options.name = NAME;
+    super(options);
+    this.template = /*html*/`<h1 class="appname">${APP_TITLE}</h1>`;
+  };
+
+  async render() {
+    await super.render();
+    return this;
+  };
+
+  async logo(e) {
+    e.preventDefault();
+    if (!this._about) {
+      this._about = new AboutDialogView(ABOUT_CONFIG);
     }
-  });
+    if (!this._about.isOpen) {
+      await this._about.render();
+    }
+    return this;
+  };
 };
 
-export const renderHeader = (controller) => {
-  return new Promise( (resolve, reject) => {
-    const t = controller.header.render();
-    if (t) {
-      resolve(controller);
-    } else {
-      reject(new Error("Error rendering header!"));
-    }
-  });
-};
-
-export const cleanupHeader = (controller) => {
-  return new Promise( (resolve, reject) => {
-    const t = controller.header.remove();
-    if (t) {
-      resolve(controller);
-    } else {
-      reject(new Error("Error removing header!"));
-    }
-  });
-};
+export default Header;

@@ -1,8 +1,0 @@
-{
-  "main.js": "bundle.js",
-  "main.js.map": "bundle.js.map",
-  "vendor~main.js": "vendor~main.js",
-  "vendor~main.js.map": "vendor~main.js.map",
-  "favicon-32x32.png": "favicon-32x32.png",
-  "index.html": "index.html"
-}
